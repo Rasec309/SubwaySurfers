@@ -34,8 +34,8 @@ ModelImporter:
       name: smalljump
       takeName: mixamo.com
       internalID: -203655887218126122
-      firstFrame: 7
-      lastFrame: 35
+      firstFrame: 12
+      lastFrame: 33
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
