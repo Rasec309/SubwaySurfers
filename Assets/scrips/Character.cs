@@ -1,86 +1,91 @@
 using UnityEngine;
 using DG.Tweening;
-using System.Collections;
-
+ using System.Collections;
 public class Character : MonoBehaviour
 {
-     private Rigidbody characterRigidbody;
-     [SerializeField]
-     private CharacterData characterData;
-     [SerializeField]
-     private Animator characternAnimator;
-     [SerializeField]
-     private float jumpForce = 5f;
-    [SerializeField]
-    private float distanceToMove = 2f;
-    [SerializeField]
-    private float moveDuration = 0.2f;
-    private bool isGrounded = true;
-    private bool isMoving = false;
-    private bool isRolling = false;
-    private void Start()
+   private Rigidbody characterRigidbody;
+   [SerializeField]
+   private CharacterData characterData;
+   [SerializeField]
+   private Animator characterAnimator;
+   [SerializeField]
+   private float jumpForce = 10f;
+   [SerializeField]
+   private float distanceToMove = 2f;
+   [SerializeField]
+   private float moveDuration = 0.2f;
+   private bool isGrounded = true;
+   private bool isMoving = false;
+   private bool isRolling = false;
+   private bool isActive = false;
+   private void Start()
     {
-        characternAnimator.Play(characterData.runAnimtionName, 0, 0f);
+        isActive = true;
+        characterAnimator.Play(characterData.runAnimationName, 0, 0f);
         characterRigidbody = GetComponent<Rigidbody>();
+    }
+    public void Lose ()
+    {
+        StopAllCoroutines();
+        characterAnimator.Play(characterData.loseAnimationName, 0, 0f);
     }
     public void Jump()
     {
-        if(isGrounded)
+        if (isGrounded)
         {
-            characternAnimator.Play(characterData.jumpAnimtionName, 0, 0f);
+            characterAnimator.Play(characterData.jumpAnimationName, 0, 0f);
             characterRigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             isGrounded = false;
         }
+       
     }
     public void MoveDown()
     {
-      if (!isGrounded)
-     {
-        characternAnimator.Play(characterData.jumpAnimtionName,0, 0f);
-       characterRigidbody.AddForce (Vector3.down * jumpForce * 2, ForceMode.Impulse);
-     }
-     characternAnimator.Play(characterData.rollAnimtionName, 0, 0f);
-     isRolling = true;
-     StartCoroutine(ResetRoll());
+        if (!isGrounded)
+        {
+            characterRigidbody.AddForce(Vector3.down*jumpForce*2,ForceMode.Impulse);
+            isGrounded = false;
+        }
+        characterAnimator.Play(characterData.rollAnimationName, 0, 0f);
+        isRolling = true;
+        StartCoroutine(ResetRoll());
     }
     public void MoveLeft()
     {
-      if(transform.position.x <= -distanceToMove)return;
-      Move(Vector3.left);
+       Move(Vector3.left);
     }
     public void MoveRight()
     {
-       if(transform.position.x >= distanceToMove)return;
-       Move (Vector3.right);
+        Move(Vector3.right);
     }
     private void Move(Vector3 direction)
     {
-      if (isMoving) return;
-      characternAnimator.Play(characterData.moveAnimtionName, 0, 0f);
-      isMoving = true;
-      Vector3 targetPosition = transform.position + direction * distanceToMove;
-      transform.DOMove (targetPosition, moveDuration). SetEase (Ease.OutQuad).OnComplete(() =>
-      {
-        isMoving = false;
-      });
+        if(isMoving || !isActive) return;
+        characterAnimator.Play(characterData.moveAnimationName, 0, 0f);
+        isMoving = true;
+        Vector3 targetPosition = transform.position + direction * distanceToMove;
+ 
+        transform.DOMove(targetPosition,moveDuration).SetEase(Ease.OutQuad).OnComplete(() =>
+        {
+            isMoving =false;
+        });
     }
+ 
     private IEnumerator ResetRoll()
-  {
-    yield return new WaitForSeconds(characternAnimator.GetCurrentAnimatorStateInfo(0).length);
-    isRolling = false;
-  }
-    public void OnCollisionEnter (Collision collision)
     {
-        if (collision.gameObject.CompareTag("Ground"))
+        yield return new WaitForSeconds(characterAnimator.GetCurrentAnimatorStateInfo(0).length);
+        isRolling = false;
+    }
+   
+    public void OnCollisionEnter(Collision collision)
+    {
+        if (isActive && collision.gameObject.CompareTag("Ground"))
         {
             if (!isRolling)
-      {
-        characternAnimator.Play(characterData.runAnimtionName, 0, 0f);
-      }
+            {
+            characterAnimator.Play(characterData.runAnimationName, 0, 0f);
+            }
             isGrounded = true;
         }
     }
-
-
-
 }
