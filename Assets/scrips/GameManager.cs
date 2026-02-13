@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     {
         StartGame();
     }
-  private void StartGame()
+  public void StartGame()
     {
         onGameStart?.Invoke();
     }

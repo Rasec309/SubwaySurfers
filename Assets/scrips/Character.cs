@@ -1,6 +1,7 @@
 using UnityEngine;
 using DG.Tweening;
  using System.Collections;
+ using UnityEngine.Events;
 public class Character : MonoBehaviour
 {
    private Rigidbody characterRigidbody;
@@ -16,10 +17,20 @@ public class Character : MonoBehaviour
    private float moveDuration = 0.2f;
    [SerializeField]
    private Transform characterStartPivot;
+   [SerializeField]
+   private UnityEvent onJump;
+   [SerializeField]
+   private UnityEvent onMoveToSide;
+   [SerializeField]
+   private UnityEvent onRoll;
    private bool isGrounded = true;
    private bool isMoving = false;
    private bool isRolling = false;
    private bool isActive = false;
+   private void Awake()
+    {
+        characterRigidbody = GetComponent<Rigidbody>();
+    }
    public void StartGame()
     {
         isRolling = false;
@@ -40,6 +51,7 @@ public class Character : MonoBehaviour
         if(!isActive)return;
         if (isGrounded)
         {
+            onJump?.Invoke();
             characterAnimator.Play(characterData.jumpAnimationName, 0, 0f);
             characterRigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             isGrounded = false;
@@ -54,6 +66,7 @@ public class Character : MonoBehaviour
             isGrounded = false;
         }
         characterAnimator.Play(characterData.rollAnimationName, 0, 0f);
+        onRoll?.Invoke();
         isRolling = true;
         StartCoroutine(ResetRoll());
     }
@@ -68,6 +81,7 @@ public class Character : MonoBehaviour
     private void Move(Vector3 direction)
     {
         if(isMoving || !isActive) return;
+        onMoveToSide?.Invoke();
         characterAnimator.Play(characterData.moveAnimationName, 0, 0f);
         isMoving = true;
         Vector3 targetPosition = transform.position + direction * distanceToMove;
