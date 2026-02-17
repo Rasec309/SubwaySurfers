@@ -1,12 +1,12 @@
 using UnityEngine;
- 
+
 public class PlatformsManager : MonoBehaviour
 {
    [SerializeField]
    private Transform platformsPivot;
    [SerializeField]
-   private InstantiatePoolObjects[] platformPrefabs;
-   [SerializeField]
+    private InstantiatePoolObjects[] platformPrefabs;
+    [SerializeField]
     private int initialPlatforms = 5;
     [SerializeField]
     private float speed = 5f;
@@ -15,19 +15,19 @@ public class PlatformsManager : MonoBehaviour
     public void StartGame()
     {
         lastPlatform = null;
-        InitializePlatforms();
-        InitiatePlatform(initialPlatforms);
+        initializePlatforms();
+        InstantiatePlatform(initialPlatforms);
         transform.position = platformsPivot.position;
         isRunning = true;
     }
-    private void InitializePlatforms()
+    public void initializePlatforms()
     {
         foreach (var platform in platformPrefabs)
         {
             platform.DeactivateAllObjects();
         }
     }
-    public void InitiatePlatform(int number)
+    public void InstantiatePlatform(int number)
     {
         for (int i=  0; i < number; i++)
         {
@@ -56,4 +56,3 @@ public class PlatformsManager : MonoBehaviour
         isRunning = false;
     }
 }
- 

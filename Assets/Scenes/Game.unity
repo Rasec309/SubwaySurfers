@@ -211,7 +211,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
@@ -230,7 +230,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -245,7 +245,7 @@ Transform:
   m_GameObject: {fileID: 189818425}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0, z: -1.23}
+  m_LocalPosition: {x: 0, y: 5.51, z: -15.31}
   m_LocalScale: {x: 13.107587, y: 16.903503, z: 1.7146664}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -263,18 +263,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 003a42341c779e4458ca5e4e5ceb57ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlatformsLimit
-  plataformsTag: Gruond
-  onPlataformDetected:
+  platformsTag: Ground
+  onPlatformDetected:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 436022124}
         m_TargetAssemblyTypeName: PlatformsManager, Assembly-CSharp
-        m_MethodName: InitiatePlatform
+        m_MethodName: InstantiatePlatform
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -668,6 +668,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlatformsManager
   platformsPivot: {fileID: 1951978097}
   platformPrefabs:
+  - {fileID: 1735323722}
   - {fileID: 1735323722}
   initialPlatforms: 5
   speed: 5
@@ -1598,45 +1599,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerCollide
   obstacleTag: Obstacle
-  onObstacleColllision:
+  onObstacleCollision:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1570729655}
-        m_TargetAssemblyTypeName: Character, Assembly-CSharp
-        m_MethodName: Lose
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 334892194}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: LoseGame
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 127787382}
-        m_TargetAssemblyTypeName: InstantiatePoolObjects, Assembly-CSharp
-        m_MethodName: InstantiateObject
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 1570729654}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1001 &1689647599
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1826,6 +1791,51 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &1826288205
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1826288207}
+  - component: {fileID: 1826288206}
+  m_Layer: 0
+  m_Name: InstantiatePlatformsBus
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1826288206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1826288205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ce3d1a6bcdf5e74b9c7e24ff7ce4395, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InstantiatePoolObjects
+  prefab: {fileID: 1491724310895173633, guid: cefdc98fc66cf6e4d9d2bbf3510554e6, type: 3}
+--- !u!4 &1826288207
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1826288205}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.12152, y: 1.22728, z: 0.25207}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1951978096
 GameObject:
   m_ObjectHideFlags: 0
@@ -1926,6 +1936,7 @@ SceneRoots:
   - {fileID: 1951978097}
   - {fileID: 189818428}
   - {fileID: 1735323723}
+  - {fileID: 1826288207}
   - {fileID: 334892195}
   - {fileID: 608481694}
   - {fileID: 1512965636}

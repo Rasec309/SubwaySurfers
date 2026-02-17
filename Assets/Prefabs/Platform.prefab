@@ -113,96 +113,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 1634895986789987100, guid: d9b25b32b49ebe241b553e7a5677f407, type: 3}
---- !u!1 &919132149155446097
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: -8679921383154817045}
-  - component: {fileID: -5754084199372789682}
-  - component: {fileID: -7511558181221131132}
-  m_Layer: 0
-  m_Name: Trash_03
-  m_TagString: Obstacle
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &-8679921383154817045
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 919132149155446097}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.0431124, y: 0, z: 1.4216698}
-  m_LocalScale: {x: 1.5117571, y: 184.67311, z: 1.0034513}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1404288563153264765}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &-5754084199372789682
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 919132149155446097}
-  m_Mesh: {fileID: 1425420793972299417, guid: ab2064bf870191842a3fa1f1c648ffde, type: 3}
---- !u!23 &-7511558181221131132
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 919132149155446097}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: f6e69271f7fac004db79def4ca76573b, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_MaskInteraction: 0
-  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &1413469079267977838
 GameObject:
   m_ObjectHideFlags: 0
@@ -214,6 +124,7 @@ GameObject:
   - component: {fileID: 6938474521113525598}
   - component: {fileID: 4920178203033811389}
   - component: {fileID: 6072198558978286769}
+  - component: {fileID: 2820873283955281065}
   m_Layer: 0
   m_Name: Trash_03 (1)
   m_TagString: Obstacle
@@ -230,7 +141,7 @@ Transform:
   m_GameObject: {fileID: 1413469079267977838}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.1338179, y: 0, z: 1.4216698}
+  m_LocalPosition: {x: 0.04, y: 0, z: 1.4216698}
   m_LocalScale: {x: 1.5117571, y: 184.67311, z: 1.0034513}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -293,6 +204,27 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &2820873283955281065
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1413469079267977838}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.5098837, y: 0.875724, z: 0.50988376}
+  m_Center: {x: 0, y: 0.437862, z: 0}
 --- !u!1 &1491724310895173633
 GameObject:
   m_ObjectHideFlags: 0
@@ -334,7 +266,6 @@ Transform:
   - {fileID: 74432925925215328}
   - {fileID: 1627522223376656923}
   - {fileID: 4274091144695593881}
-  - {fileID: -8679921383154817045}
   - {fileID: 6938474521113525598}
   - {fileID: 1613296041086195170}
   - {fileID: 1314682869858890748}
@@ -401,6 +332,7 @@ GameObject:
   - component: {fileID: 9113030434719466861}
   - component: {fileID: 1605493909420144990}
   - component: {fileID: 1250654268878201925}
+  - component: {fileID: 7429316534068114548}
   m_Layer: 0
   m_Name: Trash_03 (4)
   m_TagString: Obstacle
@@ -417,7 +349,7 @@ Transform:
   m_GameObject: {fileID: 1686641860944845838}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.28723386, y: 0, z: 6.723124}
+  m_LocalPosition: {x: -0.74, y: 0, z: 6.723124}
   m_LocalScale: {x: 1.5117571, y: 184.67311, z: 1.0034513}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -480,6 +412,27 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &7429316534068114548
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1686641860944845838}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.5098837, y: 0.875724, z: 0.50988376}
+  m_Center: {x: 0, y: 0.437862, z: -0.00000047683716}
 --- !u!1 &1897822447073630035
 GameObject:
   m_ObjectHideFlags: 0
@@ -491,6 +444,7 @@ GameObject:
   - component: {fileID: 1613296041086195170}
   - component: {fileID: 1105721239334354348}
   - component: {fileID: 5902012355465274541}
+  - component: {fileID: 4014569383410511437}
   m_Layer: 0
   m_Name: Trash_03 (2)
   m_TagString: Obstacle
@@ -507,7 +461,7 @@ Transform:
   m_GameObject: {fileID: 1897822447073630035}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.120940566, y: 0, z: 4.2345643}
+  m_LocalPosition: {x: 0.33, y: 0, z: 4.2345643}
   m_LocalScale: {x: 1.5117571, y: 184.67311, z: 1.0034513}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -570,6 +524,27 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &4014569383410511437
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1897822447073630035}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.5098837, y: 0.875724, z: 0.50988376}
+  m_Center: {x: -0.000000029802322, y: 0.437862, z: 0}
 --- !u!1 &2152103221657284769
 GameObject:
   m_ObjectHideFlags: 0
@@ -920,6 +895,7 @@ GameObject:
   - component: {fileID: 768600006047530302}
   - component: {fileID: 6107291844029612458}
   - component: {fileID: 6421934494518933493}
+  - component: {fileID: 5725263900267915161}
   m_Layer: 0
   m_Name: Trash_03 (5)
   m_TagString: Obstacle
@@ -999,6 +975,27 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &5725263900267915161
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4738194882533929675}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.5098837, y: 0.875724, z: 0.50988376}
+  m_Center: {x: 0.00000011920929, y: 0.437862, z: -0.00000047683716}
 --- !u!1 &5350929445304313799
 GameObject:
   m_ObjectHideFlags: 0
@@ -1326,6 +1323,7 @@ GameObject:
   - component: {fileID: 1314682869858890748}
   - component: {fileID: 1323039870421198288}
   - component: {fileID: 8931659713105037502}
+  - component: {fileID: 374485803883166868}
   m_Layer: 0
   m_Name: Trash_03 (3)
   m_TagString: Obstacle
@@ -1405,6 +1403,27 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &374485803883166868
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6778134927780187709}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.5098837, y: 0.875724, z: 0.50988376}
+  m_Center: {x: -0.000000059604645, y: 0.437862, z: 0}
 --- !u!1 &7756658179468931977
 GameObject:
   m_ObjectHideFlags: 0

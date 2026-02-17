@@ -1,18 +1,19 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class PlatformsLimit : MonoBehaviour
+
+public class PlatformLimit : MonoBehaviour
 {
-   [SerializeField]
-   private string plataformsTag = "Gruond";
-   [SerializeField]
-   private UnityEvent onPlataformDetected;
-   private void OnTriggerEnter(Collider other)
+    [SerializeField]
+    private string platformsTag = "Ground";
+    [SerializeField]
+    private UnityEvent onPlatformDetected;
+    private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag(plataformsTag))
+      if (other.CompareTag(platformsTag))
         {
-            other.gameObject.SetActive(false);
-            onPlataformDetected?.Invoke();
+        other.gameObject.SetActive(false);
+        onPlatformDetected?.Invoke();
         }
     }
 }

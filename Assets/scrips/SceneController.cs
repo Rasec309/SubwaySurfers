@@ -4,15 +4,15 @@ using UnityEngine.SceneManagement;
 
 public class SceneController : MonoBehaviour
 {
-    [SerializeField]
-        private Animator fade;
-    [SerializeField]
-    private string fadeAnimationName;
+[SerializeField]
+private Animator fade;
+[SerializeField]
+private string fadeAnimationName;
 
-    public void GoToScenewithFade(string sceneName)
+public void GoToSceneWithFade(string sceneName)
     {
-        StartCoroutine(LoadSceneAfterFade(sceneName));
-    }  
+        StartCoroutine (LoadSceneAfterFade(sceneName));
+    }
 
     private IEnumerator LoadSceneAfterFade(string sceneName)
     {

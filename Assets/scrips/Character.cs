@@ -1,7 +1,7 @@
 using UnityEngine;
 using DG.Tweening;
- using System.Collections;
- using UnityEngine.Events;
+using System.Collections;
+using UnityEngine.Events;
 public class Character : MonoBehaviour
 {
    private Rigidbody characterRigidbody;
@@ -28,13 +28,13 @@ public class Character : MonoBehaviour
    private bool isRolling = false;
    private bool isActive = false;
    private void Awake()
-    {
-        characterRigidbody = GetComponent<Rigidbody>();
-    }
+   {
+    characterRigidbody = GetComponent<Rigidbody>();
+   }
    public void StartGame()
     {
         isRolling = false;
-        isMoving = true;
+        isMoving = false;
         isActive = true;
         characterAnimator.Play(characterData.runAnimationName, 0, 0f);
         transform.position = characterStartPivot.position;
@@ -47,8 +47,7 @@ public class Character : MonoBehaviour
     }
     public void Jump()
     {
-        
-        if(!isActive)return;
+        if (!isActive) return;
         if (isGrounded)
         {
             onJump?.Invoke();
@@ -56,14 +55,14 @@ public class Character : MonoBehaviour
             characterRigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             isGrounded = false;
         }
-       
+        
     }
     public void MoveDown()
     {
-        if (!isActive ||!isGrounded)return;
+        if (!isActive || isRolling) return;
+        if (!isGrounded)
         {
             characterRigidbody.AddForce(Vector3.down*jumpForce*2,ForceMode.Impulse);
-            isGrounded = false;
         }
         characterAnimator.Play(characterData.rollAnimationName, 0, 0f);
         onRoll?.Invoke();
@@ -85,19 +84,19 @@ public class Character : MonoBehaviour
         characterAnimator.Play(characterData.moveAnimationName, 0, 0f);
         isMoving = true;
         Vector3 targetPosition = transform.position + direction * distanceToMove;
- 
+
         transform.DOMove(targetPosition,moveDuration).SetEase(Ease.OutQuad).OnComplete(() =>
         {
             isMoving =false;
         });
     }
- 
+
     private IEnumerator ResetRoll()
     {
         yield return new WaitForSeconds(characterAnimator.GetCurrentAnimatorStateInfo(0).length);
         isRolling = false;
     }
-   
+    
     public void OnCollisionEnter(Collision collision)
     {
         if (isActive && collision.gameObject.CompareTag("Ground"))
