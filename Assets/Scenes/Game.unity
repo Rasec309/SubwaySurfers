@@ -639,6 +639,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1141149486}
+        m_TargetAssemblyTypeName: CoinsManager, Assembly-CSharp
+        m_MethodName: SetCoins
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onGameLose:
     m_PersistentCalls:
       m_Calls:
@@ -1328,6 +1340,8 @@ GameObject:
   - component: {fileID: 887845025}
   - component: {fileID: 887845027}
   - component: {fileID: 887845026}
+  - component: {fileID: 887845029}
+  - component: {fileID: 887845028}
   m_Layer: 5
   m_Name: CoinUI
   m_TagString: Untagged
@@ -1344,7 +1358,7 @@ RectTransform:
   m_GameObject: {fileID: 887845024}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.8497, y: 0.8497, z: 0.8497}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 99904499}
@@ -1394,6 +1408,43 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 887845024}
   m_CullTransparentMesh: 1
+--- !u!114 &887845028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 887845024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2658ad8c1dbf665448bee06b44417393, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CoinsUI
+  coinsText: {fileID: 1079143984}
+  animator: {fileID: 887845029}
+  animationName: Wiggle
+--- !u!95 &887845029
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 887845024}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 147d89c42f9f3fb4e8d8b3b6207d5340, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &918962181
 GameObject:
   m_ObjectHideFlags: 0
@@ -1734,6 +1785,65 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1079143982}
   m_CullTransparentMesh: 1
+--- !u!1 &1141149485
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1141149487}
+  - component: {fileID: 1141149486}
+  m_Layer: 0
+  m_Name: CoinsManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1141149486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1141149485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c9bd6eef6b362c4e87ae468c3b122d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CoinsManager
+  onCoinsChanged:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 887845028}
+        m_TargetAssemblyTypeName: CoinsUI, Assembly-CSharp
+        m_MethodName: UpdateCoinsText
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!4 &1141149487
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1141149485}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 842, y: 1742, z: 6}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1293214703
 GameObject:
   m_ObjectHideFlags: 0
@@ -2023,9 +2133,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1570729654}
+  - component: {fileID: 1570729657}
+  - component: {fileID: 1570729659}
   - component: {fileID: 1570729656}
   - component: {fileID: 1570729655}
-  - component: {fileID: 1570729657}
   - component: {fileID: 1570729658}
   m_Layer: 0
   m_Name: Character
@@ -2113,6 +2224,8 @@ MonoBehaviour:
           m_StringArgument: Swipe
           m_BoolArgument: 0
         m_CallState: 2
+  normalCollider: {fileID: 1570729657}
+  rollCollider: {fileID: 1570729659}
 --- !u!54 &1570729656
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2234,15 +2347,48 @@ MonoBehaviour:
       - m_Target: {fileID: 918962182}
         m_TargetAssemblyTypeName: InstantiatePoolObjects, Assembly-CSharp
         m_MethodName: InstantiateObject
-        m_Mode: 0
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 1570729654}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1141149486}
+        m_TargetAssemblyTypeName: CoinsManager, Assembly-CSharp
+        m_MethodName: AddCoins
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!135 &1570729659
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1570729653}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.16
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1735323721
 GameObject:
   m_ObjectHideFlags: 0
@@ -2477,3 +2623,4 @@ SceneRoots:
   - {fileID: 547757813}
   - {fileID: 596515080}
   - {fileID: 918962183}
+  - {fileID: 1141149487}
