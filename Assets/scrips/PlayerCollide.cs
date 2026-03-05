@@ -10,6 +10,8 @@ public class PlayerCollide : MonoBehaviour
     [SerializeField]
     private string JumpPowerUpTag = "jumpPowerUp";
     [SerializeField]
+    private UnityEvent<Transform> onMagnetCollcted;
+    [SerializeField]
     private UnityEvent <Transform> onObstacleCollision;
     [SerializeField]
     private UnityEvent<Transform> onJumpPowerUpCollected;
@@ -29,6 +31,11 @@ public class PlayerCollide : MonoBehaviour
         else if (other.CompareTag(JumpPowerUpTag))
         {
             onJumpPowerUpCollected?.Invoke(transform);
+            other.gameObject.SetActive(false);
+        }
+        else if (other.CompareTag("Magnet"))
+        {
+            onMagnetCollcted?.Invoke(transform);
             other.gameObject.SetActive(false);
         }
     }

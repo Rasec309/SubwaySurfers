@@ -8,6 +8,7 @@ TagManager:
   - Obstacle
   - Coin
   - Boots
+  - Magnet
   layers:
   - Default
   - TransparentFX
