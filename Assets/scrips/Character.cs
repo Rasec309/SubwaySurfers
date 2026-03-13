@@ -10,10 +10,10 @@ public class Character : MonoBehaviour
    [SerializeField]
    private Animator characterAnimator;
    [SerializeField]
-   private float jumpForce = 5f;
+   private float jumpForce = 10f;
    public float JumpForce
     {
-        get { return jumpForce; }
+        get {return jumpForce; }
         set {jumpForce = value; }
     }
    [SerializeField]
@@ -28,10 +28,6 @@ public class Character : MonoBehaviour
    private UnityEvent onMoveToSide;
    [SerializeField]
    private UnityEvent onRoll;
-   [SerializeField]
-   private Collider normalCollider;
-   [SerializeField]
-   private Collider rollCollider;
    private bool isGrounded = true;
    private bool isMoving = false;
    private bool isRolling = false;
@@ -42,8 +38,6 @@ public class Character : MonoBehaviour
    }
    public void StartGame()
     {
-        normalCollider.enabled=true;
-        rollCollider.enabled=false;
         isRolling = false;
         isMoving = false;
         isActive = true;
@@ -66,7 +60,7 @@ public class Character : MonoBehaviour
             characterRigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             isGrounded = false;
         }
-        
+       
     }
     public void MoveDown()
     {
@@ -77,8 +71,6 @@ public class Character : MonoBehaviour
         }
         characterAnimator.Play(characterData.rollAnimationName, 0, 0f);
         onRoll?.Invoke();
-        normalCollider.enabled=false;
-        rollCollider.enabled=true;
         isRolling = true;
         StartCoroutine(ResetRoll());
     }
@@ -97,21 +89,19 @@ public class Character : MonoBehaviour
         characterAnimator.Play(characterData.moveAnimationName, 0, 0f);
         isMoving = true;
         Vector3 targetPosition = transform.position + direction * distanceToMove;
-
+ 
         transform.DOMove(targetPosition,moveDuration).SetEase(Ease.OutQuad).OnComplete(() =>
         {
             isMoving =false;
         });
     }
-
+ 
     private IEnumerator ResetRoll()
     {
         yield return new WaitForSeconds(characterAnimator.GetCurrentAnimatorStateInfo(0).length);
         isRolling = false;
-        normalCollider.enabled = true;
-        rollCollider.enabled = false;
     }
-    
+   
     public void OnCollisionEnter(Collision collision)
     {
         if (isActive && collision.gameObject.CompareTag("Ground"))
@@ -124,3 +114,4 @@ public class Character : MonoBehaviour
         }
     }
 }
+ 

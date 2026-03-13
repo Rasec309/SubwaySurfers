@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
+ 
 public class PlatformsManager : MonoBehaviour
 {
    [SerializeField]
@@ -7,20 +8,20 @@ public class PlatformsManager : MonoBehaviour
    [SerializeField]
     private InstantiatePoolObjects[] platformPrefabs;
     [SerializeField]
-    private InstantiatePoolObjects[]securePlataformPrefabs;
+    private InstantiatePoolObjects[] securePlatformsPrefabs;
     [SerializeField]
     private int initialPlatforms = 5;
     [SerializeField]
     private float speed = 5f;
     [SerializeField]
-    private UnityEvent<Platform>onPlatformPassed;
+    private UnityEvent<Platform> onPlatformPassed;
     private bool isRunning = true;
     private GameObject lastPlatform;
-    private int platformsInstantiated = 0 ;
+    private int platformsInstantiated = 0;
     public void StartGame()
     {
         lastPlatform = null;
-        platformsInstantiated = 0; 
+        platformsInstantiated = 0;
         initializePlatforms();
         InstantiatePlatform(initialPlatforms);
         transform.position = platformsPivot.position;
@@ -32,23 +33,23 @@ public class PlatformsManager : MonoBehaviour
         {
             platform.DeactivateAllObjects();
         }
-        foreach(var securePlataform in securePlataformPrefabs)
+        foreach (var securePlatform in securePlatformsPrefabs)
         {
-            securePlataform.DeactivateAllObjects();
+            securePlatform.DeactivateAllObjects();
         }
     }
     public void InstantiatePlatform(int number)
     {
         for (int i=  0; i < number; i++)
         {
-            InstantiatePoolObjects instantiatePool = platformPrefabs[Random.Range(0,platformPrefabs.Length)];
-            if(platformsInstantiated < 2)
+            InstantiatePoolObjects instantiatePool;
+            if (platformsInstantiated<2)
             {
-                instantiatePool = securePlataformPrefabs[Random.Range(0, platformPrefabs.Length)];
+                instantiatePool = securePlatformsPrefabs[Random.Range(0, securePlatformsPrefabs.Length)];
             }else
             {
                 instantiatePool = platformPrefabs[Random.Range(0, platformPrefabs.Length)];
-            }          
+            }
             platformsInstantiated++;
             Vector3 spawnPosition = Vector3.zero;
             if (lastPlatform !=null)

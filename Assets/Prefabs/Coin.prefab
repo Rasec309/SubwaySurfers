@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7242977438352891714}
   - component: {fileID: 4420460581369554578}
+  - component: {fileID: 8493931442403757893}
   m_Layer: 0
   m_Name: Coin
   m_TagString: Coin
@@ -54,6 +55,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.40886816, y: 0.38675046, z: 0.13757926}
   m_Center: {x: 0.0006995052, y: 0.7957108, z: 0.004636381}
+--- !u!114 &8493931442403757893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1498324128849001336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 806fa329546f67d449a774360276d2e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Rotate
+  rotationSpeed: {x: 0, y: 180, z: 0}
 --- !u!1001 &1020221920015124183
 PrefabInstance:
   m_ObjectHideFlags: 0
