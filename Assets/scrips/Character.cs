@@ -76,10 +76,12 @@ public class Character : MonoBehaviour
     }
     public void MoveLeft()
     {
+       if (transform.position.x <= distanceToMove)return;
        Move(Vector3.left);
     }
     public void MoveRight()
     {
+        if (transform.position.x >= distanceToMove)return;
         Move(Vector3.right);
     }
     private void Move(Vector3 direction)
@@ -98,6 +100,7 @@ public class Character : MonoBehaviour
  
     private IEnumerator ResetRoll()
     {
+        yield return null;
         yield return new WaitForSeconds(characterAnimator.GetCurrentAnimatorStateInfo(0).length);
         isRolling = false;
     }
