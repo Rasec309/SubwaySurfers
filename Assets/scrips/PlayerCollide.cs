@@ -28,6 +28,10 @@ public class PlayerCollide : MonoBehaviour
             onCoinCollected?.Invoke(transform);
             other.gameObject.SetActive(false);
         }
+        else if (other.CompareTag(coinTag))
+        {
+            CollectCoin(other.gameObject);
+        }
         else if (other.CompareTag(JumpPowerUpTag))
         {
             onJumpPowerUpCollected?.Invoke(transform);
@@ -38,5 +42,10 @@ public class PlayerCollide : MonoBehaviour
             onMagnetCollcted?.Invoke(transform);
             other.gameObject.SetActive(false);
         }
+    }
+    public void CollectCoin(GameObject coin)
+    {
+        coin.SetActive(false);
+        onCoinCollected?.Invoke(transform);
     }
 }

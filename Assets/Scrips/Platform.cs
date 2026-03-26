@@ -16,6 +16,10 @@ public class Platform : MonoBehaviour
     {
         ActivateCoin();
     }
+    public bool HasCoins()
+    {
+        return coins.Length >0;
+    }
     private void ActivateCoin()
     {
         foreach (var coin in coins)

@@ -9,6 +9,7 @@ TagManager:
   - Coin
   - Boots
   - Magnet
+  - Jetpack
   layers:
   - Default
   - TransparentFX
