@@ -853,6 +853,18 @@ MonoBehaviour:
           m_StringArgument: inicio
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1710638664}
+        m_TargetAssemblyTypeName: JetpackPowerUp, Assembly-CSharp
+        m_MethodName: Deactivate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: inicio
+          m_BoolArgument: 0
+        m_CallState: 2
   onGameLose:
     m_PersistentCalls:
       m_Calls:
@@ -1850,7 +1862,7 @@ MonoBehaviour:
   - {fileID: 2014781111}
   - {fileID: 2041729636}
   - {fileID: 2012699736}
-  powerUpOffset: 2
+  powerUpOffset: 1
 --- !u!4 &889484576
 Transform:
   m_ObjectHideFlags: 0
@@ -3206,7 +3218,7 @@ Transform:
   m_GameObject: {fileID: 1570729653}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.09, z: 4.57}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3341,6 +3353,22 @@ MonoBehaviour:
   obstacleTag: Obstacle
   coinTag: Coin
   JumpPowerUpTag: jumpPowerUp
+  jetpackTag: Jetpack
+  onJetpackCollected:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1710638664}
+        m_TargetAssemblyTypeName: JetpackPowerUp, Assembly-CSharp
+        m_MethodName: Activate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onMagnetCollcted:
     m_PersistentCalls:
       m_Calls:
@@ -3366,18 +3394,6 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: Magnetic
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1087159334}
-        m_TargetAssemblyTypeName: MagnetPowerUp, Assembly-CSharp
-        m_MethodName: Activate
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
   onObstacleCollision:
@@ -3658,6 +3674,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1710638663}
+  - component: {fileID: 1710638664}
   m_Layer: 0
   m_Name: JetpackPowerUp
   m_TagString: Untagged
@@ -3680,6 +3697,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 246715471}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1710638664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1710638662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70097eaf9116cc34098a727ec371d3a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::JetpackPowerUp
+  flyingHeight: 4.5
+  character: {fileID: 1570729655}
+  jetPackAsset: {fileID: 2066613614}
+  flyDuration: 5
+  onJetpackActivated:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1713563249
 GameObject:
   m_ObjectHideFlags: 0
@@ -3849,7 +3885,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e1a7e6a834a9a46478a97fd7a962305a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.02
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e1a7e6a834a9a46478a97fd7a962305a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4199,6 +4235,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 246715471}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2066613614 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 7c47563674bf6e146a0fbd45fd36adc6, type: 3}
+  m_PrefabInstance: {fileID: 1154973035}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2076547425
 GameObject:
   m_ObjectHideFlags: 0
