@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9533b8d437173f4f86a902c695321e7, type: 3}
   m_Name: CharacterData
   m_EditorClassIdentifier: Assembly-CSharp::CharacterData
-  jumpAnimtionName: jump
-  moveAnimtionName: smalljump
-  rollAnimtionName: roll
-  LoseAnimtionName: hit
-  runAnimtionName: run
+  jumpAnimationName: jump
+  moveAnimationName: Move
+  rollAnimationName: Roll
+  loseAnimationName: Lose
+  runAnimationName: Run
+  flyAnimationName: fllying

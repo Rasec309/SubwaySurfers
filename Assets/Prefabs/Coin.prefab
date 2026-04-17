@@ -67,7 +67,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 806fa329546f67d449a774360276d2e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Rotate
-  rotationSpeed: {x: 0, y: 180, z: 0}
+  rotationSpeed: {x: 0, y: 50, z: 0}
 --- !u!1001 &1020221920015124183
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -157,7 +157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 806fa329546f67d449a774360276d2e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Rotate
-  rotationSpeed: {x: 0, y: 0, z: 180}
+  rotationSpeed: {x: 0, y: 0, z: 90}
 --- !u!4 &694177848120631612 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f4cfced0f77d64c448cb9a4b7032f772, type: 3}

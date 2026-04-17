@@ -551,7 +551,7 @@ Transform:
   m_GameObject: {fileID: 189818425}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 5.51, z: -15.96}
+  m_LocalPosition: {x: 0, y: 5.51, z: -16.3}
   m_LocalScale: {x: 39.14581, y: 30.402641, z: 1.7146664}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -855,7 +855,7 @@ RectTransform:
   m_GameObject: {fileID: 272502926}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 7.0625, y: 8.4875, z: 1}
+  m_LocalScale: {x: 0.99956685, y: 1.0069405, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1734577311}
@@ -1526,7 +1526,8 @@ MonoBehaviour:
   securePlatformsPrefabs:
   - {fileID: 596515079}
   - {fileID: 1247329264}
-  flyingPlatformPrefabs: []
+  flyingPlatformPrefabs:
+  - {fileID: 1190965819}
   flyingPlatformHeight: 4.5
   initialPlatforms: 2
   minSpeed: 5
@@ -2594,7 +2595,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -264.6001, y: -334.4004}
-  m_SizeDelta: {x: 476.5, y: 197.69995}
+  m_SizeDelta: {x: 100, y: 197.69995}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &887845026
 MonoBehaviour:
@@ -2616,8 +2617,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: 2c5b86533813e2a488f7fc401ba24339, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -3204,7 +3205,7 @@ Transform:
   m_GameObject: {fileID: 961739749}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.34, z: 0.51}
+  m_LocalPosition: {x: 0, y: 2.34, z: -4.78}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3664,6 +3665,51 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7c47563674bf6e146a0fbd45fd36adc6, type: 3}
   m_PrefabInstance: {fileID: 1154973035}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1190965818
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1190965820}
+  - component: {fileID: 1190965819}
+  m_Layer: 0
+  m_Name: InstantieflyPlatform
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1190965819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1190965818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ce3d1a6bcdf5e74b9c7e24ff7ce4395, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InstantiatePoolObjects
+  prefab: {fileID: 4042719325748292980, guid: 3c57c965a82c243419bc07d0083e8180, type: 3}
+--- !u!4 &1190965820
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1190965818}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.91966, y: -0, z: 6.11384}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1195374633
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4519,7 +4565,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 120
   m_CollisionDetection: 0
 --- !u!136 &1570729657
 CapsuleCollider:
@@ -4558,7 +4604,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerCollide
   obstacleTag: Obstacle
   coinTag: Coin
-  JumpPowerUpTag: jumpPowerUp
+  JumpPowerUpTag: Boots
   jetpackTag: Jetpack
   onJetpackCollected:
     m_PersistentCalls:
@@ -4898,7 +4944,7 @@ RectTransform:
   m_GameObject: {fileID: 1705094475}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 7.0625, y: 8.4875, z: 1}
+  m_LocalScale: {x: 1.07463, y: 1.01287, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 591295354}
@@ -5115,7 +5161,7 @@ Animator:
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
+  m_AnimatePhysics: 1
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
@@ -5439,7 +5485,7 @@ Transform:
   m_GameObject: {fileID: 1951978096}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -11}
+  m_LocalPosition: {x: 0, y: 0, z: -1.96}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5876,6 +5922,7 @@ SceneRoots:
   - {fileID: 1068250051}
   - {fileID: 547757813}
   - {fileID: 596515080}
+  - {fileID: 1190965820}
   - {fileID: 1247329265}
   - {fileID: 918962183}
   - {fileID: 1141149487}
