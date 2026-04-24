@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: CharacterData
   m_EditorClassIdentifier: Assembly-CSharp::CharacterData
   jumpAnimationName: Jump
-  moveAnimationName: Move
+  moveAnimationName: Smalljump
   rollAnimationName: Roll
-  loseAnimationName: Lose
+  loseAnimationName: Hit
   runAnimationName: Run
   flyAnimationName: Flying

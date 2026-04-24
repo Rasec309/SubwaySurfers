@@ -8,51 +8,46 @@ public class PlayerCollide : MonoBehaviour
     [SerializeField]
     private string coinTag = "Coin";
     [SerializeField]
-    private string JumpPowerUpTag = "jumpPowerUp";
+    private string jumpPowerUpTag = "JumpPowerUp";
     [SerializeField]
-    private string jetpackTag = "Jetpack";
+    private UnityEvent<Transform> onMagnetCollected;
     [SerializeField]
-    private UnityEvent<Transform>onJetpackCollected;
+    private UnityEvent<Transform> onJumpPowerUPCollected;
     [SerializeField]
-    private UnityEvent<Transform> onMagnetCollcted;
+    private UnityEvent<Transform> onCoinCollected;
     [SerializeField]
     private UnityEvent <Transform> onObstacleCollision;
     [SerializeField]
-    private UnityEvent<Transform> onJumpPowerUpCollected;
+    private string JetpackTag = "Jetpack";
     [SerializeField]
-    private UnityEvent<Transform> onCoinCollected;
+    private UnityEvent<Transform> onJetpackCollected;
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag(obstacleTag))
         {
             onObstacleCollision?.Invoke(transform);
         }
-        else if (other.CompareTag(coinTag))
-        {
-            onCoinCollected?.Invoke(transform);
-            other.gameObject.SetActive(false);
-        }
-        else if (other.CompareTag(coinTag))
+        else if(other.CompareTag(coinTag))
         {
             CollectCoin(other.gameObject);
         }
-        else if (other.CompareTag(JumpPowerUpTag))
+        else if (other.CompareTag(jumpPowerUpTag))
         {
-            onJumpPowerUpCollected?.Invoke(transform);
+            onJumpPowerUPCollected?.Invoke(transform);
             other.gameObject.SetActive(false);
         }
         else if (other.CompareTag("Magnet"))
         {
-            onMagnetCollcted?.Invoke(transform);
+            onMagnetCollected?.Invoke(transform);
             other.gameObject.SetActive(false);
         }
-        else if (other.CompareTag(jetpackTag))
+        else if (other.CompareTag(JetpackTag))
         {
             onJetpackCollected?.Invoke(transform);
             other.gameObject.SetActive(false);
         }
     }
-    public void CollectCoin(GameObject coin)
+    public void CollectCoin (GameObject coin)
     {
         coin.SetActive(false);
         onCoinCollected?.Invoke(transform);
